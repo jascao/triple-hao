@@ -1,4 +1,4 @@
-package hackathon;
+package hackathon.pojo;
 
 public class User {
 	private Integer id;

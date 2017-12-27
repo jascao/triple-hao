@@ -1,4 +1,6 @@
-package hackathon;
+package hackathon.test;
+
+import hackathon.pojo.User;
 
 import java.io.File;
 import java.io.FileOutputStream;

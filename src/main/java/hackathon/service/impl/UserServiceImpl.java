@@ -1,6 +1,11 @@
 package hackathon.service.impl;
 
+import java.util.Map;
+
 import org.springframework.stereotype.Service;
+
+import com.mongodb.BasicDBList;
+import com.mongodb.BasicDBObject;
 
 import hackathon.service.UserService;
 import hackathon.utils.FileUtils;
@@ -17,9 +22,36 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Long getCounts() {
-		// TODO
-		return 20L;
+	public Long getCounts(Map<String, String[]> map) {
+		BasicDBObject query = new BasicDBObject();
+
+		// age
+		BasicDBList age = new BasicDBList();
+		String[] ages = map.get("age");
+		for (String a : ages) {
+			age.add(a);
+		}
+		query.put("生日年", new BasicDBObject("$in", age));
+
+		// gender
+		BasicDBList gender = new BasicDBList();
+		String[] genders = map.get("gender");
+		for (String g : genders) {
+			gender.add(g);
+		}
+		query.put("性别", new BasicDBObject("$in", gender));
+		// query.put("性别", "M");
+
+		// district
+		BasicDBList district = new BasicDBList();
+
+		String[] districts = map.get("district");
+		for (String d : districts) {
+			district.add(d);
+		}
+		query.put("省份", new BasicDBObject("$in", district));
+
+		return MongoDBUtils.getCountByCondition(query);
 	}
 
 	@Override

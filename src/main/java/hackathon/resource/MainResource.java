@@ -1,5 +1,7 @@
 package hackathon.resource;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -27,8 +29,8 @@ public class MainResource {
 
 	@RequestMapping(value = "/getCounts", method = RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
-	public @ResponseBody Long getCounts() {
-		return userService.getCounts();
+	public @ResponseBody Long getCounts(@PathVariable("map") Map<String, String[]> map) {
+		return userService.getCounts(map);
 	}
 
 	@RequestMapping(value = "/status/{jobId}", method = RequestMethod.GET)

@@ -51,24 +51,16 @@ public class MongoDBUtils {
 		return "Don't find the process";
 	}
 
-	public static void main(String[] args) {
-
-		int xx = getCountByCondition();
-		System.out.println("[----------------]");
-
-	}
-
-	public static int getCountByCondition() {
+	public static long getCountByCondition(BasicDBObject query) {
+		long result = 0;
 		try {
 			MongoClient mongoClient = new MongoClient(DB_IP, DB_PORT);
 			MongoDatabase mgdb = mongoClient.getDatabase(DB_DATABASE_NAME);
-			MongoCollection<Document> collection = mgdb.getCollection(DB_COLLECTION_PROCESS);
-
-			// Document doc = collection.find(new BasicDBObject("_id", new
-			// ObjectId(id))).first();
+			MongoCollection<Document> collection = mgdb.getCollection(DB_COLLECTION_CUSTOMER);
+			result = collection.count(query);
 
 			mongoClient.close();
-
+			return result;
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		}

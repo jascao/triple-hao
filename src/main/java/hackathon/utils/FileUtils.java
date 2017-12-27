@@ -16,7 +16,7 @@ import com.mongodb.client.MongoDatabase;
 public class FileUtils {
 
 	public static String SPLIT = ",";
-	public static int BATCH_NUM = 50;
+	public static int BATCH_NUM = 10000;
 
 	public static String UploadFile(String filePath) {
 		// get Process Id

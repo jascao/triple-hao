@@ -53,27 +53,27 @@ public class MongoDBUtils {
 
 	public static void main(String[] args) {
 
-		int xx=getCountByCondition();
+		int xx = getCountByCondition();
 		System.out.println("[----------------]");
 
 	}
+
 	public static int getCountByCondition() {
 		try {
 			MongoClient mongoClient = new MongoClient(DB_IP, DB_PORT);
 			MongoDatabase mgdb = mongoClient.getDatabase(DB_DATABASE_NAME);
 			MongoCollection<Document> collection = mgdb.getCollection(DB_COLLECTION_PROCESS);
 
-//			Document doc = collection.find(new BasicDBObject("_id", new ObjectId(id))).first();
- 
+			// Document doc = collection.find(new BasicDBObject("_id", new
+			// ObjectId(id))).first();
+
 			mongoClient.close();
 
-			
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		}
 		return 0;
 	}
-	
 
 	public static boolean updateProcess(String id) {
 		Document doc = new Document("status", "done");

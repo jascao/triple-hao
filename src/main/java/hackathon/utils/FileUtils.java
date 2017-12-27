@@ -18,18 +18,6 @@ public class FileUtils {
 	public static String SPLIT = ",";
 	public static int BATCH_NUM = 50;
 
-	public static void main(String[] args) {
-		String fileName = "/Users/jascao/Documents/test.csv";
-
-		// get Process Id
-		String processId = UploadFile(fileName);
-		System.out.println("[----------------]" + processId);
-
-		String status = MongoDBUtils.getProcessStatusById(processId);
-		System.out.println("[----------------]" + processId + "|" + status);
-
-	}
-
 	public static String UploadFile(String filePath) {
 		// get Process Id
 		String processId = MongoDBUtils.insertProcess(filePath);

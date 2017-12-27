@@ -2,8 +2,7 @@ package hackathon.service.impl;
 
 import java.util.Map;
 
-import org.springframework.stereotype.Service;
-
+import com.alibaba.dubbo.config.annotation.Service;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 
@@ -14,7 +13,7 @@ import hackathon.utils.MongoDBUtils;
 /**
  * Created by jxu on 2017/12/27.
  */
-@Service
+@Service(version = "1.0.0")
 public class UserServiceImpl implements UserService {
 	@Override
 	public String parseFile(String fileName) {

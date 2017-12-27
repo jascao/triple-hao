@@ -1,16 +1,13 @@
 package hackathon.service;
 
-import hackathon.pojo.RequestStatus;
-import sun.misc.Request;
-
 /**
  * Created by jxu on 2017/12/27.
  */
 public interface UserService {
 
-    void parseFile();
+	String parseFile(String fileName);
 
-    Long getCounts();
+	Long getCounts();
 
-    RequestStatus getParserStatus(int jobId);
+	String getParserStatus(String jobId);
 }

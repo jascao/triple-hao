@@ -16,11 +16,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class MongoDBUtils {
 
-	private static String DB_IP;
+	public static String DB_IP;
 
-	private static int DB_PORT;
+	public static int DB_PORT;
 
-	private static String DB_DATABASE_NAME;
+	public static String DB_DATABASE_NAME;
 
 
 	@Value("${spring.data.mongodb.host}")

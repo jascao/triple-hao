@@ -1,5 +1,7 @@
 package hackathon.utils;
 
+import java.util.Date;
+
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
@@ -10,14 +12,20 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 
 public class MongoDBUtils {
+//	 public static String DB_IP = "localhost";
+//	 public static int DB_PORT = 32768;
+//	 public static String DB_DATABASE_NAME = "triple_hao";
+
 	public static String DB_IP = "10.207.2.144";
 	public static int DB_PORT = 40001;
 	public static String DB_DATABASE_NAME = "triple_hao";
+
 	public static String DB_COLLECTION_PROCESS = "process";
 	public static String DB_COLLECTION_CUSTOMER = "customer";
 
 	public static String insertProcess(String fileName) {
-		Document document = new Document("status", "processing").append("fileName", fileName);
+		Document document = new Document("status", "processing").append("fileName", fileName).append("start_time",
+				(new Date()).getTime());
 		try {
 			MongoClient mongoClient = new MongoClient(DB_IP, DB_PORT);
 			MongoDatabase mgdb = mongoClient.getDatabase(DB_DATABASE_NAME);
@@ -68,7 +76,7 @@ public class MongoDBUtils {
 	}
 
 	public static boolean updateProcess(String id) {
-		Document doc = new Document("status", "done");
+		Document doc = new Document("status", "done").append("end_time", (new Date()).getTime());
 		try {
 			MongoClient mongoClient = new MongoClient(DB_IP, DB_PORT);
 			MongoDatabase mgdb = mongoClient.getDatabase(DB_DATABASE_NAME);

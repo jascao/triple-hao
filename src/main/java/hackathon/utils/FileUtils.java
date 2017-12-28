@@ -17,7 +17,8 @@ public class FileUtils {
 
 	public static String SPLIT = ",";
 	public static String DEFAULT_FILEPATH = "/Users/jascao/Documents/test.csv";
-	public static int BATCH_NUM = 10000;
+	public static int BATCH_NUM = 5000;
+	public static int THREAD_NUM = 4;
 
 	public static String UploadFile(String filePath) {
 		// get Process Id
@@ -32,7 +33,7 @@ public class FileUtils {
 		return processId;
 	}
 
-	public static void readFileAndUpload(String filePath) {
+	public static void readFileAndUpload(String filePath, String processId) {
 		File file = new File(filePath);
 		if (!file.exists()) {
 			file = new File(DEFAULT_FILEPATH);
@@ -46,7 +47,7 @@ public class FileUtils {
 			String[] heads = tempString.split(SPLIT);
 			int total_num = heads.length;
 
-			// database
+			// Database
 			MongoClient mongoClient = new MongoClient(MongoDBUtils.DB_IP, MongoDBUtils.DB_PORT);
 			MongoDatabase mgdb = mongoClient.getDatabase(MongoDBUtils.DB_DATABASE_NAME);
 			MongoCollection<Document> collection = mgdb.getCollection(MongoDBUtils.DB_COLLECTION_CUSTOMER);
@@ -62,16 +63,18 @@ public class FileUtils {
 				if (num % BATCH_NUM == 0) {
 					collection.insertMany(documents);
 					documents = new ArrayList<Document>();
-					System.out.println("[-----------------]Batch add " + BATCH_NUM);
 				}
 			}
 			if (num % BATCH_NUM != 0) {
-				System.out.println("[-----------------]Batch last add " + num % BATCH_NUM);
 				collection.insertMany(documents);
 			}
 
-			mongoClient.close();
 			reader.close();
+			// set status
+			MongoDBUtils.updateProcess(processId);
+
+			mongoClient.close();
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {

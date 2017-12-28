@@ -1,5 +1,7 @@
 package hackathon.resource;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +32,14 @@ public class MainResource {
 	@RequestMapping(value = "/getCounts", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.OK)
 	public @ResponseBody Long getCounts(@RequestBody CustomerSearch customer) {
-		return userService.getCounts(customer);
+		Date start = new Date();
+		Long result = userService.getCounts(customer);
+
+		Date end = new Date();
+		long d = end.getTime() - start.getTime();
+		System.out.println("共耗时" + d + "ms");
+
+		return result;
 	}
 
 	@RequestMapping(value = "/status/{jobId}", method = RequestMethod.GET)

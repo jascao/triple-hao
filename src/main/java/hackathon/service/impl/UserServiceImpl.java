@@ -1,11 +1,10 @@
 package hackathon.service.impl;
 
-import java.util.Map;
-
 import com.alibaba.dubbo.config.annotation.Service;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 
+import hackathon.pojo.CustomerSearch;
 import hackathon.service.UserService;
 import hackathon.utils.FileUtils;
 import hackathon.utils.MongoDBUtils;
@@ -21,31 +20,26 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Long getCounts(Map<String, String[]> map) {
+	public Long getCounts(CustomerSearch customer) {
 		BasicDBObject query = new BasicDBObject();
 
 		// age
 		BasicDBList age = new BasicDBList();
-		String[] ages = map.get("age");
-		for (String a : ages) {
+		for (String a : customer.getYear()) {
 			age.add(a);
 		}
 		query.put("生日年", new BasicDBObject("$in", age));
 
 		// gender
 		BasicDBList gender = new BasicDBList();
-		String[] genders = map.get("gender");
-		for (String g : genders) {
+		for (String g : customer.getGender()) {
 			gender.add(g);
 		}
 		query.put("性别", new BasicDBObject("$in", gender));
-		// query.put("性别", "M");
 
 		// district
 		BasicDBList district = new BasicDBList();
-
-		String[] districts = map.get("district");
-		for (String d : districts) {
+		for (Integer d : customer.getProvince()) {
 			district.add(d);
 		}
 		query.put("省份", new BasicDBObject("$in", district));

@@ -12,7 +12,7 @@ import com.mongodb.client.model.Filters;
 public class MongoDBUtils {
 	public static String DB_IP = "10.207.2.144";
 	public static int DB_PORT = 40001;
-	public static String DB_DATABASE_NAME = "mydb";
+	public static String DB_DATABASE_NAME = "triple_hao";
 	public static String DB_COLLECTION_PROCESS = "process";
 	public static String DB_COLLECTION_CUSTOMER = "customer";
 

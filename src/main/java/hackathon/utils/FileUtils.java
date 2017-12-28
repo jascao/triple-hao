@@ -16,6 +16,7 @@ import com.mongodb.client.MongoDatabase;
 public class FileUtils {
 
 	public static String SPLIT = ",";
+	public static String DEFAULT_FILEPATH = "/Users/jascao/Documents/test.csv";
 	public static int BATCH_NUM = 10000;
 
 	public static String UploadFile(String filePath) {
@@ -33,6 +34,9 @@ public class FileUtils {
 
 	public static void readFileAndUpload(String filePath) {
 		File file = new File(filePath);
+		if (!file.exists()) {
+			file = new File(DEFAULT_FILEPATH);
+		}
 		BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new FileReader(file));

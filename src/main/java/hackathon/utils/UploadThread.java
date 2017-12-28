@@ -30,6 +30,6 @@ public class UploadThread extends Thread {
 		long d = end.getTime() - start.getTime();
 		System.out.println("线程" + Thread.currentThread().getName() + "执行完毕");
 
-		System.out.println("共耗时" + d / 1000 + "秒");
+		System.out.println("共耗时" + d + "ms");
 	}
 }

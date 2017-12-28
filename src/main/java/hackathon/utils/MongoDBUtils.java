@@ -10,15 +10,33 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MongoDBUtils {
 
-	public static String DB_IP = "10.207.2.144";
+	private static String DB_IP;
 
-	public static int DB_PORT = 40001;
+	private static int DB_PORT;
 
-	public static String DB_DATABASE_NAME = "triple_hao";
+	private static String DB_DATABASE_NAME;
 
+
+	@Value("${spring.data.mongodb.host}")
+	public void setDbIp(String dbIp) {
+		DB_IP = dbIp;
+	}
+
+	@Value("${spring.data.mongodb.port}")
+	public void setDbPort(int dbPort) {
+		DB_PORT = dbPort;
+	}
+
+	@Value("${spring.data.mongodb.database}")
+	public void setDbDatabaseName(String dbDatabaseName) {
+		DB_DATABASE_NAME = dbDatabaseName;
+	}
 	public static String DB_COLLECTION_PROCESS = "process";
 	public static String DB_COLLECTION_CUSTOMER = "customer";
 

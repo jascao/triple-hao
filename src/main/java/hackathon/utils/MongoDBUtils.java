@@ -8,20 +8,14 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 
-@PropertySource("classpath:application.properties")
 public class MongoDBUtils {
 
-	@Value("${spring.data.mongodb.host}")
-	public static String DB_IP;
+	public static String DB_IP = "10.207.2.144";
 
-	@Value("${spring.data.mongodb.port}")
-	public static int DB_PORT;
+	public static int DB_PORT = 40001;
 
-	@Value("${spring.data.mongodb.database}")
-	public static String DB_DATABASE_NAME;
+	public static String DB_DATABASE_NAME = "triple_hao";
 
 	public static String DB_COLLECTION_PROCESS = "process";
 	public static String DB_COLLECTION_CUSTOMER = "customer";

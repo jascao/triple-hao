@@ -1,11 +1,11 @@
 package hackathon.service.consumer;
 
-import com.alibaba.dubbo.config.annotation.Reference;
-import hackathon.pojo.CustomerSearch;
-import hackathon.service.UserService;
 import org.springframework.stereotype.Component;
 
-import java.util.Map;
+import com.alibaba.dubbo.config.annotation.Reference;
+
+import hackathon.pojo.CustomerSearch;
+import hackathon.service.UserService;
 
 /**
  * Created by jxu on 2017/12/27.

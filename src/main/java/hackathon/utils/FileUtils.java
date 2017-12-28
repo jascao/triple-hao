@@ -16,7 +16,7 @@ import com.mongodb.client.MongoDatabase;
 public class FileUtils {
 
 	public static String SPLIT = ",";
-	public static String DEFAULT_FILEPATH = "/Users/jascao/Documents/test.csv";
+	public static String DEFAULT_FILEPATH = "/tmp/test.csv";
 	public static int BATCH_NUM = 5000;
 	public static int THREAD_NUM = 4;
 

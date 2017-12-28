@@ -1,6 +1,7 @@
 package hackathon.test;
 
 import hackathon.pojo.User;
+import hackathon.utils.FileUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -17,7 +18,7 @@ public class Test {
 
 	public static <T> void exportCsv() throws Exception {
 
-		File file = new File("/Users/jascao/Documents/test.csv");
+		File file = new File(FileUtils.DEFAULT_FILEPATH);
 		OutputStreamWriter ow = new OutputStreamWriter(new FileOutputStream(file), "utf-8");
 
 		String spilt = ",";
@@ -46,7 +47,7 @@ public class Test {
 		ow.write(t.toString());
 		ow.write("\r\n");
 
-		for (int i = 1; i < 11; i++) {
+		for (int i = 1; i < 101; i++) {
 			User user = getUser(i);
 
 			StringBuffer sb = new StringBuffer();

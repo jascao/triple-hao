@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
 
 		// district
 		BasicDBList district = new BasicDBList();
-		for (Integer d : customer.getProvince()) {
+		for (String d : customer.getProvince()) {
 			district.add(d);
 		}
 		query.put("省份", new BasicDBObject("$in", district));

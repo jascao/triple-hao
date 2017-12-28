@@ -9,7 +9,7 @@ public class CustomerSearch implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String[] gender;
 	private String[] year;
-	private Integer[] province;
+	private String[] province;
 
 	public String[] getGender() {
 		return gender;
@@ -27,11 +27,11 @@ public class CustomerSearch implements Serializable {
 		this.year = year;
 	}
 
-	public Integer[] getProvince() {
+	public String[] getProvince() {
 		return province;
 	}
 
-	public void setProvince(Integer[] province) {
+	public void setProvince(String[] province) {
 		this.province = province;
 	}
 

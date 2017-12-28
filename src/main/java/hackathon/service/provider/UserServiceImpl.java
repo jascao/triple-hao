@@ -1,4 +1,4 @@
-package hackathon.service.impl;
+package hackathon.service.provider;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.mongodb.BasicDBList;

@@ -1,5 +1,6 @@
 package hackathon.resource;
 
+
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import hackathon.pojo.CustomerSearch;
-import hackathon.service.UserService;
+import hackathon.service.consumer.UserServiceConsumer;
 
 /**
  * Created by jxu on 2017/12/27.
@@ -21,7 +22,7 @@ import hackathon.service.UserService;
 @RestController
 public class MainResource {
 	@Autowired
-	UserService userService;
+	UserServiceConsumer userService;
 
 	@RequestMapping(value = "/fileParser/{filePath}", method = RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)

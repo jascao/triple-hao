@@ -1,5 +1,6 @@
 package hackathon.resource;
 
+import hackathon.service.consumer.UserServiceConsumer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,7 @@ import hackathon.service.UserService;
 @RestController
 public class MainResource {
 	@Autowired
-	UserService userService;
+	UserServiceConsumer userService;
 
 	@RequestMapping(value = "/fileParser/{filePath}", method = RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)

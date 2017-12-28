@@ -1,10 +1,8 @@
 package hackathon.test;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import hackathon.service.impl.UserServiceImpl;
 import hackathon.utils.FileUtils;
 
 public class UploadTest {

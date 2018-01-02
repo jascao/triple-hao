@@ -1,7 +1,7 @@
 # triple-hao 说明
 
 ## 项目 架构图
-![image](picture url)
+![项目 架构图](https://github.com/jascao/triple-hao/blob/master/readme-src/1301514861787_.pic.jpg?raw=true)
 
 ## dubbo 架构图
 ![image](picture url)

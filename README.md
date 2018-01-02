@@ -10,6 +10,10 @@
 ## 项目管理后台代码地址
 https://github.com/csdhao/hackathon-ui
 
+![hackathon-ui](https://github.com/jascao/triple-hao/blob/master/readme-src/ui_01.png?raw=true)
+
+![hackathon-ui](https://github.com/jascao/triple-hao/blob/master/readme-src/ui_02.png?raw=true)
+
 ## 项目 dubbo-zk-admin 地址
 https://hub.docker.com/r/dhso/dubbo-zk-admin/
 
@@ -54,4 +58,8 @@ docker run -d -p 52181:2181 -p 58080:8080  -v zk:/root --privileged=true --name 
 
 * 机器为两台mac笔记本，4核8线程, SSD
 * 以上数据仅供参考，具体性能与网络以及配置有关
+
+## PPT
+
+[https://docs.google.com/a/acxiom.com/presentation/d/1chzHtxR_fGg8jeSx6SjUK-ND-AdLxs4V2wOqAtEybvg/edit?usp=sharing](https://docs.google.com/a/acxiom.com/presentation/d/1chzHtxR_fGg8jeSx6SjUK-ND-AdLxs4V2wOqAtEybvg/edit?usp=sharing)
 
